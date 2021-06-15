@@ -55,3 +55,59 @@ namespace Bensa_asema
             textBoxE98Tilaus.Enabled = false;
             textBoxE95Tilaus.Enabled = false;
         }
+        
+        private void Form1_Load(object sender, EventArgs e)
+
+        {
+
+        }
+
+        private void buttonKirjaudu_Click_1(object sender, EventArgs e)
+
+        {
+           
+            //Käyttäjän "syöttämä" salasana
+
+            {
+
+                //  string[] rivi = System.IO.File.ReadAllLines("u:/KO/Tietojenkäsittely/Group14/tunnukset.txt");
+                string[] rivi = System.IO.File.ReadAllLines("c:\\Users\\Mikko\\Desktop\\Bensaharjoitus\\tunnukset.txt");
+                string kayttaja2 = rivi[0];
+                string salis2 = rivi[1];
+
+                //Jos käyttäjän antamat käyttäjätunnus ja tunnusluku ovat oikein, painikkeet otetaan käyttöön
+
+                if (kayttaja2 == textBoxKayttaja.Text && salis2 == textBoxTunnusluku.Text)
+
+                {
+
+                    buttonE95.Enabled = true;
+                    buttonE98.Enabled = true;
+                    buttonDiesel.Enabled = true;
+                    textBoxDieseljaljella.Enabled = true;
+                    textBoxE98jaljella.Enabled = true;
+                    textBoxE95jaljella.Enabled = true;
+                    buttonTilaaDiesel.Enabled = true;
+                    buttonTilaaE98.Enabled = true;
+                    buttonTilaaE95.Enabled = true;
+                    textBoxDieseltilaus.Enabled = true;
+                    textBoxE98tilaus.Enabled = true;
+                    textBoxE95tilaus.Enabled = true;
+
+                    MessageBox.Show("Salasana oikein!");
+
+                }
+
+                else
+
+                {
+
+                    MessageBox.Show("Salasana väärin!");
+
+                    MessageBox.Show("Salasana väärin! Haluatko yrittää uudelleen?", "Kirjautuminen", MessageBoxButtons.YesNo);
+
+                    Application.Exit();
+   
+                }
+            }
+        }
